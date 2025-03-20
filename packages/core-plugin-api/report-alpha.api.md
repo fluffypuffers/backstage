@@ -4,6 +4,8 @@
 
 ```ts
 import { ApiRef } from '@backstage/core-plugin-api';
+import { Expand } from '@backstage/types';
+import { ExpandRecursive } from '@backstage/types';
 import { Observable } from '@backstage/types';
 import { TranslationMessages as TranslationMessages_2 } from '@backstage/core-plugin-api/alpha';
 import { TranslationRef as TranslationRef_2 } from '@backstage/core-plugin-api/alpha';
@@ -229,11 +231,7 @@ export type TranslationSnapshot<
     };
 
 // @alpha (undocumented)
-export const useTranslationRef: <
-  TMessages extends {
-    [x: string]: string;
-  },
->(
+export const useTranslationRef: <TMessages extends { [key in string]: string }>(
   translationRef: TranslationRef<string, TMessages>,
 ) => {
   t: TranslationFunction<TMessages>;

@@ -36,6 +36,7 @@ export const BitbucketRepoBranchPicker = ({
   state,
   rawErrors,
   accessToken,
+  isDisabled,
   required,
 }: BaseRepoBranchPickerProps<{
   accessToken?: string;
@@ -66,7 +67,7 @@ export const BitbucketRepoBranchPicker = ({
         provider: 'bitbucket-cloud',
       })
       .then(({ results }) => {
-        setAvailableBranches(results.map(r => r.title!));
+        setAvailableBranches(results.map(r => r.id));
       })
       .catch(() => {
         setAvailableBranches([]);
@@ -86,9 +87,15 @@ export const BitbucketRepoBranchPicker = ({
         onChange={(_, newValue) => {
           onChange({ branch: newValue || '' });
         }}
+        disabled={isDisabled}
         options={availableBranches}
         renderInput={params => (
-          <TextField {...params} label="Branch" required={required} />
+          <TextField
+            {...params}
+            label="Branch"
+            disabled={isDisabled}
+            required={required}
+          />
         )}
         freeSolo
         autoSelect

@@ -1,5 +1,50 @@
 # @backstage/integration
 
+## 1.16.2
+
+### Patch Changes
+
+- 89db8b8: Gerrit integration now exports `getGitilesAuthenticationUrl`. This enables its usage by the `GerritUrlReader`.
+- 4f8b5b6: Allow signing git commits using configured private PGP key in scaffolder
+- Updated dependencies
+  - @backstage/config@1.3.2
+  - @backstage/errors@1.2.7
+
+## 1.16.2-next.0
+
+### Patch Changes
+
+- 4f8b5b6: Allow signing git commits using configured private PGP key in scaffolder
+- Updated dependencies
+  - @backstage/config@1.3.2
+  - @backstage/errors@1.2.7
+
+## 1.16.1
+
+### Patch Changes
+
+- d2b16db: A new Gerrit helper function (`buildGerritGitilesArchiveUrlFromLocation`) has been added. This
+  constructs a Gitiles URL to download an archive. It is similar to the existing
+  `buildGerritGitilesArchiveUrl` but also support content referenced by a full commit `SHA`.
+
+  **DEPRECATIONS**: The function `buildGerritGitilesArchiveUrl` is deprecated, use the
+  `buildGerritGitilesArchiveUrlFromLocation` function instead.
+
+  **DEPRECATIONS**: The function `parseGerritGitilesUrl` is deprecated, use the
+  `parseGitilesUrlRef` function instead.
+
+- Updated dependencies
+  - @backstage/config@1.3.2
+  - @backstage/errors@1.2.7
+
+## 1.16.1-next.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/config@1.3.2-next.0
+  - @backstage/errors@1.2.7-next.0
+
 ## 1.16.0
 
 ### Minor Changes

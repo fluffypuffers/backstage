@@ -1,5 +1,54 @@
 # @backstage/cli-node
 
+## 0.2.13
+
+### Patch Changes
+
+- cb76663: Added `type` field to `BackstagePackageJson` type.
+- f54eed0: Fixed an issue where default feature type information wasn't being added to package.json/exports before publishing if exports didn't exist beforehand
+- Updated dependencies
+  - @backstage/cli-common@0.1.15
+  - @backstage/errors@1.2.7
+  - @backstage/types@1.2.1
+
+## 0.2.13-next.1
+
+### Patch Changes
+
+- f54eed0: Fixed an issue where default feature type information wasn't being added to package.json/exports before publishing if exports didn't exist beforehand
+- Updated dependencies
+  - @backstage/cli-common@0.1.15
+  - @backstage/errors@1.2.7
+  - @backstage/types@1.2.1
+
+## 0.2.13-next.0
+
+### Patch Changes
+
+- cb76663: Added `type` field to `BackstagePackageJson` type.
+- Updated dependencies
+  - @backstage/cli-common@0.1.15
+  - @backstage/errors@1.2.7
+  - @backstage/types@1.2.1
+
+## 0.2.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/types@1.2.1
+  - @backstage/cli-common@0.1.15
+  - @backstage/errors@1.2.7
+
+## 0.2.12-next.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/types@1.2.1-next.0
+  - @backstage/errors@1.2.7-next.0
+  - @backstage/cli-common@0.1.15
+
 ## 0.2.11
 
 ### Patch Changes

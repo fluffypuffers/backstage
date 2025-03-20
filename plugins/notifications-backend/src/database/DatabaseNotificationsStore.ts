@@ -21,6 +21,7 @@ import {
   NotificationGetOptions,
   NotificationModifyOptions,
   NotificationsStore,
+  TopicGetOptions,
 } from './NotificationsStore';
 import {
   Notification,
@@ -562,5 +563,16 @@ export class DatabaseNotificationsStore implements NotificationsStore {
       .where('user', options.user)
       .delete();
     await this.db<UserSettingsRowType>('user_settings').insert(rows);
+  }
+
+  async getTopics(options: TopicGetOptions): Promise<{ topics: string[] }> {
+    const notificationQuery = this.getNotificationsBaseQuery({
+      ...options,
+      orderField: [{ field: 'topic', order: 'asc' }],
+    });
+    const topics = await notificationQuery
+      .whereNotNull('topic')
+      .distinct(['topic']);
+    return { topics: topics.map(row => row.topic) };
   }
 }

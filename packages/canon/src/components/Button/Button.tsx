@@ -16,8 +16,10 @@
 
 import React, { forwardRef } from 'react';
 import { Icon } from '../Icon';
-import { ButtonProps } from './types';
-import { useCanon } from '../../contexts/canon';
+import clsx from 'clsx';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
+
+import type { ButtonProps } from './types';
 
 /** @public */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -29,37 +31,31 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconStart,
       iconEnd,
       children,
+      className,
+      style,
+      ...rest
     } = props;
 
-    const { getResponsiveValue } = useCanon();
-
     // Get the responsive value for the variant
-    const responsiveSize = getResponsiveValue(size);
-    const responsiveVariant = getResponsiveValue(variant);
+    const responsiveSize = useResponsiveValue(size);
+    const responsiveVariant = useResponsiveValue(variant);
 
     return (
       <button
-        {...props}
         ref={ref}
         disabled={disabled}
-        className={[
-          'cn-button',
-          `cn-button-${responsiveSize}`,
-          `cn-button-${responsiveVariant}`,
-        ].join(' ')}
+        className={clsx(
+          'canon-Button',
+          `canon-Button--size-${responsiveSize}`,
+          `canon-Button--variant-${responsiveVariant}`,
+          className,
+        )}
+        style={style}
+        {...rest}
       >
-        <span
-          className={[
-            'cn-button-content',
-            iconStart && iconEnd ? 'cn-button-content-icon-both' : '',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          {iconStart && <Icon name={iconStart} />}
-          {children}
-        </span>
-        {iconEnd && <Icon name={iconEnd} />}
+        {iconStart && <Icon name={iconStart} className="canon-Button--icon" />}
+        {children}
+        {iconEnd && <Icon name={iconEnd} className="canon-Button--icon" />}
       </button>
     );
   },

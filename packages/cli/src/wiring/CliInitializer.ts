@@ -17,21 +17,28 @@
 import { CommandGraph } from './CommandGraph';
 import { CliFeature, InternalCliFeature, InternalCliPlugin } from './types';
 import { CommandRegistry } from './CommandRegistry';
-import { program } from 'commander';
+import { Command } from 'commander';
 import { version } from '../lib/version';
 import chalk from 'chalk';
 import { exitWithError } from '../lib/errors';
 import { assertError } from '@backstage/errors';
+import { isPromise } from 'util/types';
 
-type UninitializedFeature = CliFeature | Promise<CliFeature>;
+type UninitializedFeature = CliFeature | Promise<{ default: CliFeature }>;
 
 export class CliInitializer {
   private graph = new CommandGraph();
   private commandRegistry = new CommandRegistry(this.graph);
   #uninitiazedFeatures: Promise<CliFeature>[] = [];
 
-  add(module: UninitializedFeature) {
-    this.#uninitiazedFeatures.push(Promise.resolve(module));
+  add(feature: UninitializedFeature) {
+    if (isPromise(feature)) {
+      this.#uninitiazedFeatures.push(
+        feature.then(f => unwrapFeature(f.default)),
+      );
+    } else {
+      this.#uninitiazedFeatures.push(Promise.resolve(feature));
+    }
   }
 
   async #register(feature: CliFeature) {
@@ -54,6 +61,8 @@ export class CliInitializer {
    */
   async run() {
     await this.#doInit();
+
+    const program = new Command();
     program
       .name('backstage-cli')
       .version(version)
@@ -86,8 +95,28 @@ export class CliInitializer {
           .allowExcessArguments(true)
           .action(async () => {
             try {
+              const args = program.parseOptions(process.argv);
+
+              const nonProcessArgs = args.operands.slice(2);
+              const positionalArgs = [];
+              let index = 0;
+              for (
+                let argIndex = 0;
+                argIndex < nonProcessArgs.length;
+                argIndex++
+              ) {
+                // Skip the command name
+                if (
+                  argIndex === index &&
+                  node.command.path[argIndex] === nonProcessArgs[argIndex]
+                ) {
+                  index += 1;
+                  continue;
+                }
+                positionalArgs.push(nonProcessArgs[argIndex]);
+              }
               await node.command.execute({
-                args: program.parseOptions(process.argv).unknown,
+                args: [...positionalArgs, ...args.unknown],
               });
               process.exit(0);
             } catch (error) {
@@ -135,4 +164,23 @@ function isCliPlugin(feature: CliFeature): feature is InternalCliPlugin {
   }
   // Backwards compatibility for v1 registrations that use duck typing
   return 'plugin' in internal;
+}
+
+/** @internal */
+export function unwrapFeature(
+  feature: CliFeature | { default: CliFeature },
+): CliFeature {
+  if ('$$type' in feature) {
+    return feature;
+  }
+
+  // This is a workaround where default exports get transpiled to `exports['default'] = ...`
+  // in CommonJS modules, which in turn results in a double `{ default: { default: ... } }` nesting
+  // when importing using a dynamic import.
+  // TODO: This is a broader issue than just this piece of code, and should move away from CommonJS.
+  if ('default' in feature) {
+    return feature.default;
+  }
+
+  return feature;
 }

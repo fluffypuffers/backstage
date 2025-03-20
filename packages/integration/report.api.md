@@ -201,6 +201,7 @@ export type AzureIntegrationConfig = {
   token?: string;
   credential?: AzureDevOpsCredential;
   credentials?: AzureDevOpsCredential[];
+  commitSigningKey?: string;
 };
 
 // @public
@@ -237,6 +238,7 @@ export type BitbucketCloudIntegrationConfig = {
   username?: string;
   appPassword?: string;
   token?: string;
+  commitSigningKey?: string;
 };
 
 // @public @deprecated
@@ -267,6 +269,7 @@ export type BitbucketIntegrationConfig = {
   token?: string;
   username?: string;
   appPassword?: string;
+  commitSigningKey?: string;
 };
 
 // @public
@@ -297,14 +300,21 @@ export type BitbucketServerIntegrationConfig = {
   token?: string;
   username?: string;
   password?: string;
+  commitSigningKey?: string;
 };
 
-// @public
+// @public @deprecated
 export function buildGerritGitilesArchiveUrl(
   config: GerritIntegrationConfig,
   project: string,
   branch: string,
   filePath: string,
+): string;
+
+// @public
+export function buildGerritGitilesArchiveUrlFromLocation(
+  config: GerritIntegrationConfig,
+  url: string,
 ): string;
 
 // @public
@@ -389,6 +399,7 @@ export type GerritIntegrationConfig = {
   gitilesBaseUrl: string;
   username?: string;
   password?: string;
+  commitSigningKey?: string;
 };
 
 // @public
@@ -556,6 +567,11 @@ export function getGitHubRequestOptions(
 };
 
 // @public
+export function getGitilesAuthenticationUrl(
+  config: GerritIntegrationConfig,
+): string;
+
+// @public
 export function getGitLabFileFetchUrl(
   url: string,
   config: GitLabIntegrationConfig,
@@ -624,6 +640,7 @@ export type GiteaIntegrationConfig = {
   baseUrl?: string;
   username?: string;
   password?: string;
+  commitSigningKey?: string;
 };
 
 // @public
@@ -738,6 +755,7 @@ export type GitLabIntegrationConfig = {
   apiBaseUrl: string;
   token?: string;
   baseUrl: string;
+  commitSigningKey?: string;
 };
 
 // @public
@@ -802,7 +820,7 @@ export interface IntegrationsByType {
   harness: ScmIntegrationsGroup<HarnessIntegration>;
 }
 
-// @public
+// @public @deprecated
 export function parseGerritGitilesUrl(
   config: GerritIntegrationConfig,
   url: string,

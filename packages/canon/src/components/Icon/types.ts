@@ -14,25 +14,64 @@
  * limitations under the License.
  */
 
+import { ReactNode } from 'react';
+
 /** @public */
 export type IconNames =
-  | 'arrowDown'
-  | 'arrowLeft'
-  | 'arrowRight'
-  | 'arrowUp'
-  | 'arrowDownCircle'
-  | 'arrowLeftCircle'
-  | 'arrowRightCircle'
-  | 'arrowUpCircle'
+  | 'account-circle'
+  | 'alert'
+  | 'arrow-down'
+  | 'arrow-down-circle'
+  | 'caret-down'
+  | 'caret-left'
+  | 'caret-right'
+  | 'caret-up'
+  | 'arrow-left'
+  | 'arrow-left-circle'
+  | 'arrow-left-down'
+  | 'arrow-left-up'
+  | 'arrow-right'
+  | 'arrow-right-circle'
+  | 'arrow-right-down'
+  | 'arrow-right-up'
+  | 'arrow-up'
+  | 'arrow-up-circle'
+  | 'braces'
+  | 'brackets'
+  | 'bug'
   | 'check'
-  | 'chevronDown'
-  | 'chevronLeft'
-  | 'chevronRight'
-  | 'chevronUp'
+  | 'check-double'
+  | 'chevron-down'
+  | 'chevron-left'
+  | 'chevron-right'
+  | 'chevron-up'
   | 'cloud'
+  | 'code'
+  | 'discord'
+  | 'download'
+  | 'external-link'
+  | 'eye'
+  | 'eye-off'
+  | 'filter'
+  | 'flower'
+  | 'github'
+  | 'git-repository'
+  | 'group'
   | 'heart'
+  | 'moon'
   | 'plus'
-  | 'trash';
+  | 'sidebar-fold'
+  | 'sidebar-unfold'
+  | 'sparkling'
+  | 'star'
+  | 'sun'
+  | 'terminal'
+  | 'trash'
+  | 'upload'
+  | 'user'
+  | 'youtube'
+  | 'zoom-in'
+  | 'zoom-out';
 
 /** @public */
 export type IconMap = Partial<Record<IconNames, React.ComponentType>>;
@@ -41,4 +80,17 @@ export type IconMap = Partial<Record<IconNames, React.ComponentType>>;
 export type IconProps = {
   name: IconNames;
   size?: number;
+  className?: string;
+  style?: React.CSSProperties;
 };
+
+/** @public */
+export interface IconContextProps {
+  icons: IconMap;
+}
+
+/** @public */
+export interface IconProviderProps {
+  children?: ReactNode;
+  overrides?: Partial<Record<IconNames, React.ComponentType>>;
+}

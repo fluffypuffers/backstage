@@ -53,7 +53,6 @@ Scope: The Backstage home page and information architecture
 | Emma Indal               | Spotify      | Infinite Buck$ | [emmaindal](http://github.com/emmaindal) | emmaindal#7503    |
 | Djamaile Rahamat         | Spotify      | Infinite Buck$ | [djamaile](http://github.com/djamaile)   | dyoqi             |
 | Raghunandan Balachandran | Spotify      | Infinite Buck$ | [soapraj](http://github.com/soapraj)     | raghunandanb#1114 |
-| Bailey Brooks            | Spotify      | Infinite Buck$ | [bailey](http://github.com/bailey)       | \_bailey4         |
 
 ### Search
 
@@ -132,7 +131,7 @@ Scope: Tooling and Community Repo Maintainers for the Backstage [Community Plugi
 | -------------------- | ------------ | ------------------------------------------- | ------------ |
 | André Wanlin         | Spotify      | [awanlin](https://github.com/awanlin)       | `ahhhndre`   |
 | Bethany Griggs       | Red Hat      | [BethGriggs](https://github.com/BethGriggs) | `bethgriggs` |
-| Nick Boldt           | Red Hat      | [nickboldt](https://github.com/nickboldt)   | `nboldt`     |
+| Kashish Mittal       | Red Hat      | [04kash](https://github.com/04kash)         | `kashh._.`   |
 | Vincenzo Scamporlino | Spotify      | [vinzscam](https://github.com/vinzscam)     | `vinzscam`   |
 
 ### Events
@@ -163,7 +162,7 @@ Scope: Tooling for frontend and backend schema-first OpenAPI development.
 
 | Name           | Organization | GitHub                                                | Discord       |
 | -------------- | ------------ | ----------------------------------------------------- | ------------- |
-| Aramis Sennyey |              | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984` |
+| Aramis Sennyey | DoorDash     | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984` |
 
 ### Scaffolder
 
@@ -175,6 +174,16 @@ Scope: The Scaffolder frontend and backend plugins, and related tooling.
 | ------------------- | ------------ | ------------------------------------- | ---------------- |
 | Bogdan Nechyporenko | Bol.com      | [acierto](https://github.com/acierto) | `bogdan_haarlem` |
 
+### Auditor
+
+Team: @backstage/auditor-maintainers
+
+Scope: The auditor core service, along with auditor usage in the main repository
+
+| Name         | Organization | GitHub                                          | Discord        |
+| ------------ | ------------ | ----------------------------------------------- | -------------- |
+| Paul Schultz | Red Hat      | [schultzp2020](https://github.com/schultzp2020) | `schultzp2020` |
+
 ### Documentation
 
 Team: @backstage/documentation-maintainers
@@ -184,16 +193,16 @@ Scope: The Backstage Documentation
 | Name            | Organization  | GitHub                                                | Discord       |
 | --------------- | ------------- | ----------------------------------------------------- | ------------- |
 | Andre Wanlin    | Spotify       | [awanlin](https://github.com/awanlin)                 | `ahhhndre`    |
-| Aramis Sennyey  |               | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984` |
+| Aramis Sennyey  | DoorDash      | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984` |
 | Peter Macdonald | VodafoneZiggo | [Parsifal-M](https://github.com/Parsifal-M)           | `parsifal`    |
 
 ## Sponsors
 
-| Name              | Organization | GitHub                                      | Email             |
-| ----------------- | ------------ | ------------------------------------------- | ----------------- |
-| Niklas Gustavsson | Spotify      | [protocol7](https://github.com/protocol7)   | ngn@spotify.com   |
-| Dave Zolotusky    | Spotify      | [dzolotusky](https://github.com/dzolotusky) | dzolo@spotify.com |
-| Pia Nilsson       | Spotify      | [pianilsson](https://github.com/pianilsson) | pia@spotify.com   |
+| Name              | Organization | GitHub                                      | Email               |
+| ----------------- | ------------ | ------------------------------------------- | ------------------- |
+| Niklas Gustavsson | Spotify      | [protocol7](https://github.com/protocol7)   | <ngn@spotify.com>   |
+| Dave Zolotusky    | Spotify      | [dzolotusky](https://github.com/dzolotusky) | <dzolo@spotify.com> |
+| Pia Nilsson       | Spotify      | [pianilsson](https://github.com/pianilsson) | <pia@spotify.com>   |
 
 ## Organization Members
 
@@ -203,16 +212,18 @@ Scope: The Backstage Documentation
 | Alex Crome                     |                           | [afscrome](https://github.com/afscrome)               | `afscrome`                     |
 | Andre Wanlin                   | Spotify                   | [awanlin](https://github.com/awanlin)                 | `ahhhndre`                     |
 | Andrew Thauer                  | Wealthsimple              | [andrewthauer](https://github.com/andrewthauer)       | `andrewthauer#3060`            |
-| Aramis Sennyey                 |                           | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984`                  |
+| Aramis Sennyey                 | DoorDash                  | [aramissennyeydd](https://github.com/aramissennyeydd) | `Aramis#7984`                  |
 | Brian Fletcher                 | Roadie.io                 | [punkle](https://github.com/punkle)                   | `Brian Fletcher#7051`          |
 | Carlos Esteban Lopez Jaramillo | VMWare                    | [luchillo17](https://github.com/luchillo17)           | `luchillo17#8777`              |
 | David Tuite                    | Roadie.io                 | [dtuite](https://github.com/dtuite)                   | `David Tuite (roadie.io)#1010` |
 | Deepankumar Loganathan         |                           | [deepan10](https://github.com/deepan10)               | `deepan10`                     |
+| Heikki Hellgren                | OP Financial Group        | [drodil](https://github.com/drodil)                   | `deathammer`                   |
 | Himanshu Mishra                | Harness.io                | [OrkoHunter](https://github.com/OrkoHunter)           | `OrkoHunter#1520`              |
 | Irma Solakovic                 | Roadie.io                 | [Irma12](https://github.com/Irma12)                   | `Irma#7629`                    |
 | Jorge Lainfiesta               | Roadie.io                 | [jorgelainfiesta](https://github.com/jorgelainfiesta) | `jorgel#8733`                  |
 | Jussi Hallila                  | Roadie.io                 | [Xantier](https://github.com/Xantier)                 | `Xantier#0086`                 |
 | Kashish Mittal                 | Red Hat                   | [04kash](https://github.com/04kash)                   | `kashh._.`                     |
+| Kurt King                      | Procore                   | [kurtaking](https://github.com/kurtaking)             | `mrking2you`                   |
 | Mark Avery                     | Cvent                     | [webark](https://github.com/webark)                   | `webark#8471`                  |
 | Miklós Kiss                    | Roadie.io                 | [kissmikijr](https://github.com/kissmikijr)           | `Miklos#7416`                  |
 | Patrick Jungermann             | Bonial International GmbH | [pjungermann](https://github.com/pjungermann)         | `pjungermann#6933`             |
